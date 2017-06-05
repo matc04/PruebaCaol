@@ -41,9 +41,14 @@ class ListadoController extends Controller {
         
         $consultores = $this->getconsultores();
 
+
 		return	view('consultor.entrada',	array('consultores'	=> $consultores,
 		                                          'meses'       => $this->meses,
-												  'anhos'       => $this->anhos));
+												  'anhos'       => $this->anhos,
+                                                  'mesin_sel'   => '',
+                                                  'anhoin_sel'  => '',
+                                                  'mesfn_sel'   => '',
+                                                  'anhofn_sel'  => '') );
 	}
 
     /*
@@ -57,7 +62,7 @@ class ListadoController extends Controller {
         $mes_fn = $request->input('mes_fn') + 1;
         $fecha_in = $request->input('anho_in').'-'.$mes_in.'-01';
         $fecha_fn = $request->input('anho_fn').'-'.$mes_fn.'-'.$this->getDia($request->input('mes_fn')+1);
-        $titulo = "desde ".$this->meses[$mes_in]." de ".$request->input('anho_in')." a ".$mes_fn." de ".$request->input('anho_fn');
+        $titulo = "desde ".$this->meses[$mes_in]." de ".$request->input('anho_in')." a ".$this->meses[$mes_fn]." de ".$request->input('anho_fn');
         $desempenho=null;
         $ganancia=null; 
         foreach ($consultores as  $consultor) {
@@ -81,7 +86,7 @@ class ListadoController extends Controller {
                     foreach ($desempeno as $value) {
                         array_push($ganancia[$consultor],  array('receita' => $value['receita'], 
                                                                  'comissao'=> $value['comissao'], 
-                                                                 'periodo' => $value['mes'].$value['anho'], 
+                                                                 'periodo' => $this->meses[$value['mes']].'  '.$value['anho'], 
                                                                  'costo'   => $costo['salario'],
                                                                  'fila'    => 'td',
                                                                  'color'   => 'black' ));
@@ -100,6 +105,10 @@ class ListadoController extends Controller {
         $data['titulo'] = $titulo;
         $data['meses'] = $this->meses;
         $data['anhos'] = $this->anhos;
+        $data['mesin_sel'] = $request->input('mes_in');
+        $data['anhoin_sel'] = $request->input('anho_in');
+        $data['mesfn_sel'] = $request->input('mes_fn');
+        $data['anhofn_sel'] = $request->input('anho_fn');
 
         return view('consultor.relatorio')->with($data);
     }

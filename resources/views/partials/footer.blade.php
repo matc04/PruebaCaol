@@ -22,14 +22,26 @@
          <script>
 		   $(document).ready(function(){
 		     $('#pizza').click(function(){
-                $('#entrada').attr('action', '{{ url('pizza') }}');
+                if ($('#lista_analista').val() != null && $('#lista_analista').val() != ''){
+                  $('#entrada').attr('action', '{{ url('pizza') }}');    
+                } else {
+                  alert("Debe indicar al menos un consultor");
+                }
              });
              $('#relatorio').click(function(){
-                $('#entrada').attr('action', '{{ url('relatorio') }}');
+                if ($('#lista_analista').val() != null && $('#lista_analista').val() != ''    ){
+                    $('#entrada').attr('action', '{{ url('relatorio') }}');
+                }else{
+                    alert("Debe indicar al menos un consultor");
+                }
              });
              $('#grafico').click(function(){
-                $('#entrada').attr('action', '{{ url('grafico') }}');
-             })
+                if ($('#lista_analista').val() != null && $('#lista_analista').val() != ''){
+                    $('#entrada').attr('action', '{{ url('grafico') }}');
+                } else {
+                    alert("Debe indicar al menos un consultor");
+                }
+             });
 		   });
 	
 	</script>

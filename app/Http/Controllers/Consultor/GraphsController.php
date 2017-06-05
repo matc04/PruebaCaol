@@ -78,7 +78,12 @@ class GraphsController extends Controller {
         $data['ganancia'] = '';
         $data['titulo'] = '';
         $data['meses'] = $this->meses;
-        $data['anhos'] = $this->anhos;                                     
+        $data['anhos'] = $this->anhos; 
+        $data['mesin_sel'] = $request->input('mes_in');
+        $data['anhoin_sel'] = $request->input('anho_in');
+        $data['mesfn_sel'] = $request->input('mes_fn');
+        $data['anhofn_sel'] = $request->input('anho_fn');
+                                    
        return view('consultor.pizza')->with($data);
     }
 
@@ -139,9 +144,11 @@ class GraphsController extends Controller {
         $data['periodos']=$periodos;
         $data['costos']=$costos;
         $data['meses']=$this->meses;
+        $data['mesin_sel'] = $request->input('mes_in');
+        $data['anhoin_sel'] = $request->input('anho_in');
+        $data['mesfn_sel'] = $request->input('mes_fn');
+        $data['anhofn_sel'] = $request->input('anho_fn');
         
         return view('consultor.grafico')->with($data);
-
     }
-
 }

@@ -246,30 +246,30 @@ var greeting = (display + " ");
                     <td><font color="black">
                       <select name="mes_in">
                         @for	($i	=	0;	$i	<	12;	$i++)
-                          <option value={{ $i }}>{{ $meses[$i] }}</option>
+                          <option @if ($i == $mesin_sel) selected @endif value={{ $i }}>{{ $meses[$i] }}</option>
                         @endfor
                       </select>
                       <select name="anho_in">
                         @foreach	($anhos as $anho)
-                          <option value={{ $anho }}>{{ $anho }}</option>
+                          <option  @if ($anho == $anhoin_sel) selected @endif value={{ $anho }}>{{ $anho }}</option>
                         @endforeach
                       </select>
                       a
                       <select name="mes_fn">
                         @for	($i	=	0;	$i	<	12;	$i++)
-                          <option value={{ $i }}>{{ $meses[$i] }}</option>
+                          <option @if ($i == $mesfn_sel) selected @endif value={{ $i }}>{{ $meses[$i] }}</option>
                         @endfor
                       </select>
                       <select name="anho_fn">
                         @foreach	($anhos as $anho)
-                          <option value={{ $anho }}>{{ $anho }}</option>
+                          <option @if ($anho == $anhofn_sel) selected @endif value={{ $anho }}>{{ $anho }}</option>
                         @endforeach
                       </select>
                     </font></td>
                     <td width="20%" rowspan="2"><div align="center"><font color="black">
-                        <div id="relatorio"><input style="BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT-SIZE: 8pt; BACKGROUND-POSITION-Y: center; LEFT: 120px; BACKGROUND-IMAGE: url(img/icone_relatorio.png); BORDER-LEFT: 1px outset; WIDTH: 110px; BORDER-BOTTOM: 1px outset; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma, Verdana, Arial; HEIGHT: 22px; BACKGROUND-COLOR: #CCCCCC" type="submit" value="Relat&oacute;rio" name="btSalvar22" /></div>
-                       <div id="pizza"> <input style="BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT-SIZE: 8pt; BACKGROUND-POSITION-Y: center; LEFT: 120px; BACKGROUND-IMAGE: url(img/icone_grafico.png); BORDER-LEFT: 1px outset; WIDTH: 110px; BORDER-BOTTOM: 1px outset; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma, Verdana, Arial; HEIGHT: 22px; BACKGROUND-COLOR: #CCCCCC" type="submit"  value="Pizza" name="btSalvar222" /></div>
-                       <div id="grafico"><input style="BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT-SIZE: 8pt; BACKGROUND-POSITION-Y: center; LEFT: 120px; BACKGROUND-IMAGE: url(img/icone_pizza.png); BORDER-LEFT: 1px outset; WIDTH: 110px; BORDER-BOTTOM: 1px outset; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma, Verdana, Arial; HEIGHT: 22px; BACKGROUND-COLOR: #CCCCCC" type="submit" value="Gráfico" name="btSalvar222" /></div>
+                        <div id="relatorio"><input style="BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT-SIZE: 8pt; BACKGROUND-POSITION-Y: center; LEFT: 120px; BACKGROUND-IMAGE:{{ url('images/icone_relatorio.png') }}; BORDER-LEFT: 1px outset; WIDTH: 110px; BORDER-BOTTOM: 1px outset; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma, Verdana, Arial; HEIGHT: 22px; BACKGROUND-COLOR: #CCCCCC" type="submit" value="Relat&oacute;rio" name="btSalvar22" /></div>
+                       <div id="pizza"> <input style="BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT-SIZE: 8pt; BACKGROUND-POSITION-Y: center; LEFT: 120px; BACKGROUND-IMAGE: {{ url('images/icone_grafico.png') }}; BORDER-LEFT: 1px outset; WIDTH: 110px; BORDER-BOTTOM: 1px outset; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma, Verdana, Arial; HEIGHT: 22px; BACKGROUND-COLOR: #CCCCCC" type="submit"  value="Pizza" name="btSalvar222" /></div>
+                       <div id="grafico"><input style="BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT-SIZE: 8pt; BACKGROUND-POSITION-Y: center; LEFT: 120px; BACKGROUND-IMAGE: {{ url('img/icone_pizza.png') }}; BORDER-LEFT: 1px outset; WIDTH: 110px; BORDER-BOTTOM: 1px outset; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma, Verdana, Arial; HEIGHT: 22px; BACKGROUND-COLOR: #CCCCCC" type="submit" value="Gráfico" name="btSalvar222" /></div>
                     </font></div></td>
                   </tr>
                   <tr bgcolor="#fafafa">
